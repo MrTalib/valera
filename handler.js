@@ -71,7 +71,7 @@ module.exports = handle = (client, Client) => {
                 if(res.data.status == false) data.reply(res.data.message)
                 ytm = res.data.result
                 teks = `*Данные успешно получены!*\n\n*Заголовок* : ${ytm.title}\n*Размер* : ${ytm.size}\n*Качество* : ${ytm.quality}\n*Формат* : ${ytm.ext}\n*Источник* : ${ytm.source}\n\n_Подождите, пока медиафайл будет отправлен. Это может занять несколько минут._`
-                if(Number(ytm.size.split(' MB')[0]) >= 50.00) return Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', `*Данные получены успешно!!*\n\n*Заголовок* : ${ytm.title}\n*Размер* : ${ytm.size}\n*Качество* : ${ytm.quality}\n*Формат* : mp3\n*Source* : ${ytm.source}\n*Link* : ${ytm.link}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`, data.message)
+                if(Number(ytm.size.split(' MB')[0]) >= 50.00) return Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', `*Данные получены успешно!!*\n\n*Заголовок* : ${ytm.title}\n*Размер* : ${ytm.size}\n*Качество* : ${ytm.quality}\n*Формат* : mp3\n*Источник* : ${ytm.source}\n*Ссылка* : ${ytm.link}\n\n_На срок более установленного лимита оформляется в виде ссылки_`, data.message)
                 Client.sendFileFromUrl(data.from, ytm.thumb, 'thumb.jpg', teks, data.message)
                 Client.sendFileFromUrl(data.from, ytm.link, `${ytm.title} - Download.mp3`, ``, data.message)
             } catch {
@@ -615,9 +615,9 @@ module.exports = handle = (client, Client) => {
             if(!data.isGroup) return data.reply(mess.group)
             if(!data.isAdmin) return data.reply(mess.admin)
             if(!data.botIsAdmin) return data.reply(mess.botAdmin)
-            if(data.body == "") return data.reply(`Отправить команду *${data.prefix}${data.command} [ nomor ]*\nПример : ${data.prefix}${data.command} 6285736996646`)
+            if(data.body == "") return data.reply(`Отправить команду *${data.prefix}${data.command} [ nomor ]*\nПример : ${data.prefix}${data.command} 7967xxxxxxxx`)
             args = data.args.map(mp => mp + "@s.whatsapp.net")
-            client.groupAdd(data.from, args).then(() => data.reply(`Успешно добавлен @${data.args.join(' @')}`)).catch(() => data.reply('Невозможно пригласить'))
+            client.groupAdd(data.from, args).then(() => data.reply(` @${data.args.join(' @')}`)).catch(() => data.reply('Невозможно пригласить'))
         })
         Client.cmd.on('testing', async (data) => {
             console.log(client)
@@ -838,61 +838,6 @@ module.exports = handle = (client, Client) => {
                             author: `${configs.author}`
                         })
                     } else data.reply(`Неверный формат !, отметьте кого-нибудь или ответное изображение с помощью ${data.prefix}огненыйстик`)
-                    break
-                    /*TEXT MAKER*/
-                case 'qrencode':
-                case 'barcode':
-                case 'bneon':
-                case 'matrix':
-                case 'breakwall':
-                case 'gneon':
-                case 'dropwater':
-                case 'tfire':
-                case 'sandw':
-                case 'epep':
-                case 'gplaybutton':
-                case 'splaybutton':
-                case 'text3dbox':
-                case 'text3d':
-                case 'logobp':
-                case 'leavest':
-                case 'tlight':
-                case 'crosslogo':
-                case 'cslogo':
-                case 'crismes':
-                case 'flametext':
-                case 'glowtext':
-                case 'smoketext':
-                case 'flowertext':
-                case 'lithgtext':
-                case 'nulis':
-                    try {
-                    if(isLimit(data.sender)) return data.reply(mess.limit)
-                    if(data.body == "") return data.reply(`Отправить команду *${data.prefix}${data.command} [ teks ]*\nПример : ${data.prefix}${data.command} shiro`)
-                    data.reply(mess.wait)
-                    Client.sendFileFromUrl(from, `${configs.apiUrl}/api/${command}?text=${data.body}&apikey=${configs.zeksKey}`, 'gambar.jpg', `*Изображение успешно сделано!* @${data.sender.split('@')[0]}`, message)
-                    } catch {
-                        data.reply('error')
-                    }
-                    break
-                case 'wolflogo':
-                case 'logoaveng':
-                case 'phlogo':
-                case 'marvellogo':
-                case 'gtext':
-                case 'pubglogo':
-                case 'snowwrite':
-                case 'watercolour':
-                    try {
-                    if(isLimit(data.sender)) return data.reply(mess.limit)
-                    if(data.body == "") return data.reply(`Отправить команду *${data.prefix}${data.command} [ teks1|teks2 ]*\nПример : ${data.prefix}${data.command} shiro|elios`)
-                    data.reply(mess.wait)
-                    p = data.body
-                    text = p.split('|')
-                    Client.sendFileFromUrl(from, `${configs.apiUrl}/api/${command}?apikey=${configs.zeksKey}&text1=${text[0]}&text2=${text[1]}`, 'p.jpg', `*Изображение успешно сделано!* @${data.sender.split('@')[0]}`, message)
-                    } catch {
-                        data.reply('error')
-                    }
                     break
                     /*SEARCHING*/
                 case 'ytsearch':
