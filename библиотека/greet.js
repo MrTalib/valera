@@ -11,7 +11,7 @@ try {
 				stst = await client.getStatus(`${num.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
 				ppimg = await client.getProfilePicture(`${num.split('@')[0]}@c.us`).catch(() => ppimg = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
-				teks = `*[ Приветствуем Нового участника Группы ${mdata.subject} ]*\n\n*――――――――――――――*\n⤔ *ИМЯ*: @${num.split('@')[0]}\n⤔ *СТАТУС В ПРОФИЛЕ*: ${stst}\n*――――――――――――――*\n\nПриветcтвуем тебя участник.\nНадеемся тебе будет здесь интересно\nОзнакомтесь с правилами группы и представтесь!🎊🎊🎉!\nПроект IT World \nhttps://world.simdif.com`
+				teks = `*[ Приветствуем Нового участника Группы ${mdata.subject} ]*\n\n*――――――――――――――*\n⤔ *ИМЯ*: @${num.split('@')[0]}\n⤔ *СТАТУС В ПРОФИЛЕ*: ${stst}\n*――――――――――――――*\n\nПриветcтвуем тебя участник.\nНадеемся тебе будет здесь интересно\nОзнакомтесь с правилами группы и представтесь!🎊🎊🎉!\nПроект Web S.T.A.L.K.E.R.\nhttps://sites.google.com/view/webstalker`
 				let pushname = client.contacts[num].vname || client.contacts[num].notify || num.split('@')[0] 
 				Client.sendFileFromUrl(jdgn.jid, ppimg, 'user.jpg', teks, null, {contextInfo: {"mentionedJid": Client.getMentionedJidList(teks), "stanzaId":"xxxx","participant":"0@s.whatsapp.net","quotedMessage":{"groupInviteMessage":{"groupJid":from,"inviteCode":"OKOKLAH","inviteExpiration":9999,"groupName":from,"caption":`Participant Added/Join ${pushname}`}},"remoteJid":num}})
 			} else if (jdgn.action == 'remove') {
@@ -19,7 +19,7 @@ try {
 				stst = stst.status == 401 ? '' : stst.status
 				var ppimg;
 				ppimg = await client.getProfilePicture(`${num.split('@')[0]}@c.us`).catch(() => ppimg = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
-				teks = `*[ Досвидания участник Группы ${mdata.subject} ]*\n\n*――――――――――――――*\n⤔ *ИМЯ*: @${num.split('@')[0]}\n⤔ *статус в профиле*: ${stst}\n*――――――――――――――*\n\nДОСВИДАНИЕ УЧАСТНИК\nМы будем скучать!!!\n\n Но это не точно🤭:(`
+				teks = `*[ Досвидания участник Группы ${mdata.subject} ]*\n\n*――――――――――――――*\n⤔ *ИМЯ*: @${num.split('@')[0]}\n⤔ *статус в профиле*: ${stst}\n*――――――――――――――*\n\nДОСВИДАНИЕ УЧАСТНИК\nМы будем скучать!!!\n\n Но это не точно🤭 \nПРОЕКТ Web S.T.A.L.K.E.R. \nhttps://sites.google.com/view/webstalker`
 				let pushname = client.contacts[num].vname || client.contacts[num].notify || num.split('@')[0] 
 				Client.sendFileFromUrl(jdgn.jid, ppimg, 'user.jpg', teks, null, {contextInfo: {"mentionedJid": Client.getMentionedJidList(teks), "stanzaId":"xxxx","participant":"0@s.whatsapp.net","quotedMessage":{"groupInviteMessage":{"groupJid":from,"inviteCode":"OKOKLAH","inviteExpiration":9999,"groupName":from,"caption":`Participant Removed/Leave ${pushname}`}},"remoteJid":num}})
 			}
