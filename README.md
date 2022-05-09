@@ -33,7 +33,7 @@
 > pkg install ffmpeg -y 
 > pkg install wget
 > pkg install imagemagick -y
-> git clone https://github.com/FREDOM1979/valera
+> git clone https://github.com/MrTalib/valera
 > cd valera
 > npm i
 > npm start
