@@ -85,6 +85,8 @@ const menu = (prefix, pushname) => {
 *${p+=1}.* ${prefix}resetlimit
 *${p+=1}.* ${prefix}self
 *${p+=1}.* ${prefix}public
+Проек Web S.T.A.L.K.E.R.
+https://sites.google.com/view/webstalker
 `
 }
 
